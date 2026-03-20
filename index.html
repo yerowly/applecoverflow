@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Flow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="loading">
+    <h1>Cover Flow</h1>
+    <div class="spinner"></div>
+    <p>Loading covers & hand tracking...</p>
+  </div>
+
+  <button id="add-track-btn" title="Add new track">+</button>
+
+  <div id="upload-modal">
+    <form class="modal-content" id="upload-form">
+      <h2>Add New Track</h2>
+      
+      <input type="text" id="in-title" placeholder="Song Title" required>
+      <input type="text" id="in-artist" placeholder="Artist Name" required>
+      
+      <label class="custom-file-upload">
+        <span id="cover-label">Select Cover Image (JPG/PNG)</span>
+        <input type="file" id="in-cover" accept="image/*" required>
+      </label>
+      
+      <label class="custom-file-upload">
+        <span id="audio-label">Select Audio File (MP3/WAV)</span>
+        <input type="file" id="in-audio" accept="audio/*">
+      </label>
+      
+      <button type="submit" id="submit-btn">Add to Carousel</button>
+      <button type="button" id="close-modal-btn">Cancel</button>
+    </form>
+  </div>
+
+  <div id="app">
+    <div id="coverflow-section">
+      <canvas id="three-canvas"></canvas>
+      <div id="track-info">
+        <div id="track-title">—</div>
+        <div id="track-artist">—</div>
+      </div>
+      <div id="now-playing">NOW PLAYING</div>
+    </div>
+
+    <div id="divider"></div>
+
+    <div id="webcam-section">
+      <video id="webcam" autoplay playsinline></video>
+      <div id="webcam-overlay"></div>
+      <div id="instructions">Move hand to browse · Pinch to play</div>
+      <div id="hand-status">Waiting for hands...</div>
+    </div>
+
+    <div class="underwater-overlay" id="underwater-overlay"></div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
