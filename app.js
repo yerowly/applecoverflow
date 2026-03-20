@@ -537,7 +537,7 @@ function updPart(dt) {
       audioVibeIntensity = Math.pow(avg / 255.0, 2); 
     }
 
-    let dynamicBase = 0.5 + Math.pow(audioVibeIntensity, 2) * 8.0; 
+    let dynamicBase = 2.0 + Math.pow(audioVibeIntensity, 2) * 8.0; 
     let vibeOffset = 1.0 + audioVibeIntensity * 0.5 * Math.sin(performance.now() * 0.05);
     let targetScale = Math.max(0.3, dynamicBase * vibeOffset);
 
